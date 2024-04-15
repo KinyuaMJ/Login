@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Identity;
 
 namespace LoginTestAPI.Data
 {
-    public class LoginTestAuthDBContext :IdentityDbContext
+    public class LoginTestAuthDBContext : IdentityDbContext
     {
         public LoginTestAuthDBContext(DbContextOptions<LoginTestAuthDBContext> options) : base(options)
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+       protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
@@ -61,4 +61,5 @@ namespace LoginTestAPI.Data
             builder.Entity<IdentityRole>().HasData(roles);
         }
     }
-}
+};
+      

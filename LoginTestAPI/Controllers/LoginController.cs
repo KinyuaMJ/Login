@@ -5,7 +5,7 @@ namespace LoginTestAPI.Controllers
 {
 
     //https://localhost:portnumber/api/Login
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
     {

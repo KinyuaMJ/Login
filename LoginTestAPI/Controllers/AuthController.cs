@@ -14,7 +14,7 @@ namespace LoginTestAPI.Controllers
         private readonly ITokenRepository tokenRepository;
 
        
-
+         
         public AuthController(UserManager<IdentityUser>userManager, ITokenRepository tokenRepository)
         {
             this.userManager = userManager;
@@ -23,7 +23,8 @@ namespace LoginTestAPI.Controllers
 
         //POST: /api/Auth/Register
         [HttpPost]
-        [Route("Register")]
+        [RequireHttps]
+        [Route("/api/Auth/Register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest)
         {
             var identityUser = new IdentityUser
@@ -56,7 +57,7 @@ namespace LoginTestAPI.Controllers
 
         //POST: /api/Auth/Login
         [HttpPost]
-        [Route("Login")]
+        [Route("/api/Auth/Login")]
 
         public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
@@ -74,21 +75,21 @@ namespace LoginTestAPI.Controllers
 
 
                     if (roles != null)
-                   /* {
+                  {
 
 
                         // Create Token
 
-                       var jwtToken = tokenRepository.CreateJWTToken(user, roles.ToList());
+                      var jwtToken = tokenRepository.CreateJWTToken(user, roles.ToList());
 
                         var response = new LoginResponse
                         {
                             JwtToken = jwtToken
                         };
-                        return Ok(Response);
+                        return Ok(response);
 
 
-                    }*/
+                    }
 
 
 
